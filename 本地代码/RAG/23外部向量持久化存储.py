@@ -7,12 +7,12 @@ from langchain_community.document_loaders import CSVLoader
 vec_store = Chroma(
     collection_name = "test",                     #集合名
     embedding_function = DashScopeEmbeddings(),   # 嵌入模型
-    persist_directory = "./本地代码/chat_history/chromadb",  # 向量数据库的目录
+    persist_directory = "E:/AI应用/chat_history/chromadb",  # 向量数据库的目录
 
 )
 
 loader = CSVLoader(
-    file_path = "./资料/数据资料/info.csv",
+    file_path = "E:/AI应用/资料/数据资料/info.csv",
     encoding = "utf-8",
     source_column = "source", # 指定源文档的列名
 )
@@ -25,6 +25,7 @@ vec_store.add_documents(
     documents = documents,                                    # 新增的文档
     ids = ["id" + str(i) for i in range(1, len(documents) + 1)]  # 新增的文档的id
 )
+
 # 删除
 vec_store.delete(["id1","id2"])  # 删除的文档的id
 

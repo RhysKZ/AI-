@@ -24,7 +24,6 @@ uploader_file = st.file_uploader(
 if "service" not in st.session_state:
     st.session_state["service"] = KnowledgeBaseService()
 
-
 if uploader_file is not None:
     # 提取文件的信息
     file_name = uploader_file.name
